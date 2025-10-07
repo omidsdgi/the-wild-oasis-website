@@ -1,3 +1,6 @@
+export const metadata={
+    title: "Cabins",
+}
 
 async function Page() {
 
