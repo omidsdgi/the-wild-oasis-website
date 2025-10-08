@@ -1,12 +1,12 @@
 
 export const metadata={
-    title: "Account",
+    title: "Guest area",
 }
 
 function Page() {
     return (
         <h1>
-            account page
+            Your account
 
         </h1>
     );
