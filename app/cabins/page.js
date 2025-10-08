@@ -3,13 +3,11 @@ export const metadata={
 }
 
 async function Page() {
-
     return (
         <>
             <h1>
                 Mehraneh cabins
             </h1>
-
         </>
     );
 }
