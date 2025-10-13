@@ -1,82 +1,31 @@
-import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
-import {getCabin, getCabins} from "@/app/_lib/data-service";
-import Image from "next/image";
-import {id} from "date-fns/locale";
-
-// PLACEHOLDER DATA
-// const cabin = {
-//   id: 89,
-//   name: "001",
-//   maxCapacity: 2,
-//   regularPrice: 250,
-//   discount: 0,
-//   description:
-//     "Discover the ultimate luxury getaway for couples in the cozy wooden cabin 001. Nestled in a picturesque forest, this stunning cabin offers a secluded and intimate retreat. Inside, enjoy modern high-quality wood interiors, a comfortable seating area, a fireplace and a fully-equipped kitchen. The plush king-size bed, dressed in fine linens guarantees a peaceful nights sleep. Relax in the spa-like shower and unwind on the private deck with hot tub.",
-//   image:
-//     "https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg",
-// };
-export  async function generateMetadata({params}){
-  const {name} = await getCabin(params.cabinId);
-  return {title:`Cabin ${name}`};
-}
-export async function generateStaticParams() {
-  const cabins = await getCabins();
-  console.log(cabins[2])
-  return cabins.map((cabin) => ({
-    cabinId: String(cabin.id), // Make sure "id" exists here
-  }));
+import CabinList from "@/app/_components/cabinList";
+import {Suspense} from "react";
+import Spinner from "@/app/_components/Spinner";
+export const revalidate=0
+export const metadata={
+    title: "Cabins",
 }
 
+async function Page() {
 
-export default async function Page({params}) {
-  const cabin = await getCabin(params.cabinId);
-  const { id, name, maxCapacity, regularPrice, discount, image, description } =
-    cabin;
 
-  return (
-    <div className="max-w-6xl mx-auto mt-8">
-      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-        <div className="relative scale-[1.15] -translate-x-3">
-          <Image src={image} fill  sizes="100vw" className="object-cover" alt={`Cabin ${name}`} />
-        </div>
-
+    return (
         <div>
-          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
-            Cabin {name}
-          </h3>
-
-          <p className="text-lg text-primary-300 mb-10">{description}</p>
-
-          <ul className="flex flex-col gap-4 mb-7">
-            <li className="flex gap-3 items-center">
-              <UsersIcon className="h-5 w-5 text-primary-600" />
-              <span className="text-lg">
-                For up to <span className="font-bold">{maxCapacity}</span>{" "}
-                guests
-              </span>
-            </li>
-            <li className="flex gap-3 items-center">
-              <MapPinIcon className="h-5 w-5 text-primary-600" />
-              <span className="text-lg">
-                Located in the heart of the{" "}
-                <span className="font-bold">Dolomites</span> (Italy)
-              </span>
-            </li>
-            <li className="flex gap-3 items-center">
-              <EyeSlashIcon className="h-5 w-5 text-primary-600" />
-              <span className="text-lg">
-                Privacy <span className="font-bold">100%</span> guaranteed
-              </span>
-            </li>
-          </ul>
+            <h1 className="text-4xl mb-5 text-accent-400 font-medium">
+                Our Luxury Cabins
+            </h1>
+            <p className="text-primary-200 text-lg mb-10">
+                Cozy yet luxurious cabins, located right in the heart of the Italian
+                Dolomites. Imagine waking up to beautiful mountain views, spending your
+                days exploring the dark forests around, or just relaxing in your private
+                hot tub under the stars. Enjoy nature&apos;s beauty in your own little home
+                away from home. The perfect spot for a peaceful, calm vacation. Welcome
+                to paradise.
+            </p>
+            <Suspense fallback={<Spinner />}>
+                <CabinList />
+            </Suspense>
         </div>
-      </div>
-
-      <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
-        </h2>
-      </div>
-    </div>
-  );
+    );
 }
+export default Page

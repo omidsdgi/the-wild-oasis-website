@@ -1,3 +1,4 @@
+
 import CabinList from "@/app/_components/cabinList";
 import {Suspense} from "react";
 import Spinner from "@/app/_components/Spinner";
@@ -6,9 +7,9 @@ export const metadata={
     title: "Cabins",
 }
 
-async function Page() {
-
-
+async function Page({searchParams}) {
+const filter=searchParams?.capacity ?? "all"
+    console.log(searchParams)
     return (
         <div>
             <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -23,7 +24,7 @@ async function Page() {
                 to paradise.
             </p>
             <Suspense fallback={<Spinner />}>
-            <CabinList />
+                <CabinList filter={filter}/>
             </Suspense>
         </div>
     );
