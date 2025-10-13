@@ -2,7 +2,8 @@
 import CabinList from "@/app/_components/cabinList";
 import {Suspense} from "react";
 import Spinner from "@/app/_components/Spinner";
-export const revalidate=0
+import Filter from "@/app/_components/Filter";
+export const revalidate=3600
 export const metadata={
     title: "Cabins",
 }
@@ -23,8 +24,12 @@ const filter=searchParams?.capacity ?? "all"
                 away from home. The perfect spot for a peaceful, calm vacation. Welcome
                 to paradise.
             </p>
+                <div className=" flex justify-end mb-8">
+                    <Filter/>
+                </div>
             <Suspense fallback={<Spinner />}>
-                <CabinList filter={filter}/>
+                    <CabinList filter={filter}/>
+
             </Suspense>
         </div>
     );
