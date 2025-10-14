@@ -1,31 +1,38 @@
-import CabinList from "@/app/_components/cabinList";
-import {Suspense} from "react";
-import Spinner from "@/app/_components/Spinner";
-export const revalidate=0
-export const metadata={
-    title: "Cabins",
+import Cabin from "@/app/_components/Cabin";
+import { getCabin, getCabins } from "@/app/_lib/data-service";
+
+
+
+// export const metadata = {
+//   title: "Cabin",
+// };
+
+export async function generateMetadata({ params }) {
+    const { name } = await getCabin(params.cabinId);
+    return { title: `Cabin ${name}` };
 }
 
-async function Page() {
+export async function generateStaticParams() {
+    const cabins = await getCabins();
 
+    const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
+
+    return ids;
+}
+
+export default async function Page({ params }) {
+    const cabin = await getCabin(params.cabinId);
 
     return (
-        <div>
-            <h1 className="text-4xl mb-5 text-accent-400 font-medium">
-                Our Luxury Cabins
-            </h1>
-            <p className="text-primary-200 text-lg mb-10">
-                Cozy yet luxurious cabins, located right in the heart of the Italian
-                Dolomites. Imagine waking up to beautiful mountain views, spending your
-                days exploring the dark forests around, or just relaxing in your private
-                hot tub under the stars. Enjoy nature&apos;s beauty in your own little home
-                away from home. The perfect spot for a peaceful, calm vacation. Welcome
-                to paradise.
-            </p>
-            <Suspense fallback={<Spinner />}>
-                <CabinList />
-            </Suspense>
+        <div className="max-w-6xl mx-auto mt-8">
+            <Cabin cabin={cabin} />
+
+            <div>
+                <h2 className="text-5xl font-semibold text-center mb-10 text-accent-400">
+                    Reserve {cabin.name} today. Pay on arrival.
+                </h2>
+
+            </div>
         </div>
     );
 }
-export default Page
