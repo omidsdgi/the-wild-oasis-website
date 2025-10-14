@@ -8,7 +8,7 @@ async function Reservation({cabin}) {
         getBookedDatesByCabinId(cabin.id),
     ])
     return (
-        <div className="grid grid-cols-[4fr_3fr] gap-1  border-primary-800 max-h-[400px]">
+        <div className="grid grid-cols-[4fr_3fr] gap-1 border border-primary-800 max-h-[400px]">
             <DateSelector settings={settings} bookedDates={bookedDates} cabin={cabin}/>
             <ReservationForm cabin={cabin}/>
         </div>
