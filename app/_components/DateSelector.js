@@ -2,8 +2,11 @@
 import { isWithinInterval } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import {useContext} from "react";
+import {useReservation} from "@/app/_components/ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
+
   return (
     range.from &&
     range.to &&
@@ -14,7 +17,7 @@ function isAlreadyBooked(range, datesArr) {
 }
 
 function DateSelector({settings,bookedDates,cabin}) {
-
+const{range,setRange,resetRange}=useReservation()
   // CHANGE
   const regularPrice = 23;
   const discount = 23;
@@ -39,6 +42,12 @@ function DateSelector({settings,bookedDates,cabin}) {
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
         numberOfMonths={2}
+        classNames={{
+          day_selected: "bg-accent-500 text-primary-800",
+          day_range_middle: "bg-accent-400 text-primary-800",
+          day_range_start: "bg-accent-500 text-primary-800",
+          day_range_end: "bg-accent-500 text-primary-800",
+        }}
 
       />
 
