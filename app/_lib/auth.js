@@ -11,7 +11,11 @@ const authConfig={
     callbacks:{
         authorized({auth,request}){
             return !!auth?.user
-        }
+        },
+    },
+    pages:{
+        signIn:"/login"
+        },
     }
-}
+
 export const {auth, handlers:{GET,POST}}=NextAuth(authConfig)
