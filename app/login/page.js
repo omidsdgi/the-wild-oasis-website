@@ -1,6 +1,10 @@
 import SignInButton from "@/app/_components/SignInButton";
 import {signInAction} from "@/app/_lib/actions";
 
+export const metadata={
+  title: "Login",
+}
+
 export default function Page() {
   return (
       <form action={signInAction} method="POST">
