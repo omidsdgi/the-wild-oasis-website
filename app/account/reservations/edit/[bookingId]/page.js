@@ -1,4 +1,5 @@
 import { getBooking, getCabin } from "@/app/_lib/data-service";
+import {updateBooking} from "@/app/_lib/actions";
 
 export default async function Page({ params }) {
   const { bookingId } = params;
@@ -11,7 +12,7 @@ export default async function Page({ params }) {
           Edit Reservation #{bookingId}
         </h2>
 
-        <form
+        <form action={updateBooking}
             className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
         >
           <input type="hidden" value={bookingId} name="bookingId" />
@@ -47,8 +48,10 @@ export default async function Page({ params }) {
             />
           </div>
 
-          <div className="flex justify-end items-center gap-6">
+          <div className="flex justify-end items-center g-accent-500 gap-6">
+              <button className=" bg-accent-700">
               Update reservation
+              </button>
           </div>
         </form>
       </div>
