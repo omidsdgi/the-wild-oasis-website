@@ -1,5 +1,6 @@
 import { getBooking, getCabin } from "@/app/_lib/data-service";
 import {updateBooking} from "@/app/_lib/actions";
+import SubmitButton from "@/app/_components/submitButton";
 
 export default async function Page({ params }) {
   const { bookingId } = params;
@@ -49,9 +50,9 @@ export default async function Page({ params }) {
           </div>
 
           <div className="flex justify-end items-center g-accent-500 gap-6">
-              <button className=" bg-accent-700">
-              Update reservation
-              </button>
+             <SubmitButton pendingLabel="Update ..." >
+                 Update reservation
+             </SubmitButton>
           </div>
         </form>
       </div>
