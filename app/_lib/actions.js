@@ -49,6 +49,7 @@ export async function createBooking(bookingData,formData) {
         console.error("supabase",error);
         throw new Error('Booking could not be created');
     }
+    revalidatePath(`/cabins/${bookingData.cabinId}`);
 }
 export async function deleteBooking(bookingId) {
     // await new Promise(resolve => setTimeout(resolve, 1000));
