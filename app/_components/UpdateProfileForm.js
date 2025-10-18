@@ -10,7 +10,8 @@ function UpdateProfileForm({guest,children}) {
     const {fullName,email,nationalID,countryFlag}=guest
     return (
         <form action={updateGuest}
-              className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+              className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+        >
             <div className="space-y-2">
                 <label>Full name</label>
                 <input
@@ -34,7 +35,7 @@ function UpdateProfileForm({guest,children}) {
             <div className="space-y-2">
                 <div className="flex items-center justify-between">
                     <label htmlFor="nationality">Where are you from?</label>
-
+                    {countryFlag && (
                     <Image
                         src={countryFlag}
                         alt="Country flag"
@@ -42,6 +43,7 @@ function UpdateProfileForm({guest,children}) {
                         width={20}
                         height={20}
                     />
+                        )}
                 </div>
                 {children}
 
