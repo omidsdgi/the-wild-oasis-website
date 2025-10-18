@@ -45,7 +45,7 @@ function ReservationForm({cabin,user}) {
                 {await createBookingWithData(formData);
                     resetRange();
                 }}
-                  className='bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col'>
+                className='bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col'>
                 <div className='space-y-2'>
                     <label htmlFor='numGuests'>How many guests?</label>
                     <select
@@ -78,9 +78,11 @@ function ReservationForm({cabin,user}) {
                 </div>
 
                 <div className='flex justify-end items-center gap-6'>
-                    <p className='text-primary-300 text-base'>Start by selecting dates</p>
-
-                    <SubmitButton pendingLabel="Reserving ...">Reserve now</SubmitButton>
+                    {(!startDate && !endDate) ?(
+                        <p className='text-primary-300 text-base'>Start by selecting dates</p>
+                        ):(
+                        <SubmitButton pendingLabel="Reserving ...">Reserve now</SubmitButton>
+                        )}
                 </div>
             </form>
         </div>
