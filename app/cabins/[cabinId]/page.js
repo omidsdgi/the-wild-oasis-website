@@ -3,7 +3,6 @@ import Cabin from "@/app/_components/Cabin";
 import {getCabin, getCabins} from "@/app/_lib/data-service";
 import Reservation from "@/app/_components/Reservation";
 import Spinner from "@/app/_components/Spinner";
-import ReservationReminder from "@/app/_components/ReservationReminder";
 
 export async function generateMetadata({ params }) {
     const { name } = await getCabin(params.cabinId);
@@ -13,13 +12,11 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
     const cabins = await getCabins();
 
-    const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
-    return ids;
+    return  cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
 }
 
 export default async function Page({ params }) {
     const cabin = await getCabin(params.cabinId);
-    const {id,name,maxCapacity,regularPrice,discount,image,description}=cabin
     return (
         <div className="max-w-6xl mx-auto mt-8">
             <Cabin cabin={cabin} />
@@ -29,8 +26,8 @@ export default async function Page({ params }) {
                 </h2>
                 <Suspense fallback={<Spinner />}>
                 <Reservation cabin={cabin} />
-                    <ReservationReminder/>
                 </Suspense>
+
             </div>
         </div>
     );
