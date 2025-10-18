@@ -23,6 +23,9 @@ export async function updateGuest(formData) {
     revalidatePath("/account/profile");
 }
 export async function deleteReservation(bookingId) {
+    // await new Promise(resolve => setTimeout(resolve, 1000));
+    // throw new Error();
+
     const session = await auth();
     if (!session) throw new Error("You must be logged in");
 
