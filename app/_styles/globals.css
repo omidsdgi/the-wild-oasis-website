@@ -32,12 +32,70 @@
 
 /* For data picker */
 
+/*.rdp {*/
+/*  --rdp-cell-size: 36px !important;*/
+/*  --rdp-accent-color: theme('colors.accent.500') !important;*/
+/*  --rdp-background-color: theme('colors.accent.600') !important;*/
+/*  margin: 0 !important;*/
+/*}*/
 .rdp {
-  --rdp-cell-size: 36px !important;
-  --rdp-accent-color: theme('colors.accent.500') !important;
-  --rdp-background-color: theme('colors.accent.600') !important;
-  margin: 0 !important;
+  --rdp-accent-color: theme('colors.accent.500');
+  --rdp-accent-background-color: theme('colors.accent.600');
+  margin: 0;
 }
 
+/* تنظیم اندازه سلول‌ها */
+.rdp-day_button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
 
+/* استایل برای تاریخ‌های انتخابی */
+.rdp-selected-custom {
+  background-color: theme('colors.accent.500') !important;
+  color: theme('colors.primary.800') !important;
+  font-weight: 600;
+  border-radius: 50% !important;
+}
 
+/* شروع range */
+.rdp-range_start-custom {
+  background-color: theme('colors.accent.500') !important;
+  color: theme('colors.primary.800') !important;
+  border-radius: 50% !important;
+}
+
+/* پایان range */
+.rdp-range_end-custom {
+  background-color: theme('colors.accent.500') !important;
+  color: theme('colors.primary.800') !important;
+  border-radius: 50% !important;
+}
+
+/* وسط range */
+.rdp-range_middle-custom {
+  background-color: theme('colors.accent.600') !important;
+  color: theme('colors.primary.800') !important;
+  border-radius: 50% !important;
+}
+
+/* hover effect */
+.rdp-day_button-custom:hover:not(:disabled) {
+  background-color: theme('colors.accent.600');
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+.rdp-selected-custom:hover,
+.rdp-range_start-custom:hover,
+.rdp-range_end-custom:hover {
+  background-color: theme('colors.accent.600') !important;
+}
+
+/* تاریخ‌های غیرفعال */
+.rdp-day_button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
