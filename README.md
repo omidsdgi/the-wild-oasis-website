@@ -322,7 +322,8 @@ Contributions are welcome! Please follow these steps:
 
 - GitHub: [https://github.com/omidsdgi](https://github.com/omidsdgi)
 - Portfolio: [https://my-portfolio-tau-flame-49.vercel.app](https://my-portfolio-tau-flame-49.vercel.app)
-- Email: omid69sdgi@gmail.com
+- Email: [omid69sdgi@gmail.com](mailto:omid69sdgi@gmail.com)
+
 ---
 
 ## 🔗 Related Projects
