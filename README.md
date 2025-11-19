@@ -320,10 +320,9 @@ Contributions are welcome! Please follow these steps:
 
 **Omid Sadeghi**
 
-- GitHub: [@omidsdgi](https://github.com/omidsdgi)
-- Portfolio: [[Your Portfolio Link](https://my-portfolio-tau-flame-49.vercel.app/)
-- Email: [omid69sdgi@gmail.com]
-
+- GitHub: [https://github.com/omidsdgi](https://github.com/omidsdgi)
+- Portfolio: [https://my-portfolio-tau-flame-49.vercel.app](https://my-portfolio-tau-flame-49.vercel.app)
+- Email: omid69sdgi@gmail.com
 ---
 
 ## 🔗 Related Projects
@@ -352,16 +351,16 @@ This project is [MIT](LICENSE) licensed.
 ## 📸 Screenshots
 
 ### Homepage
-*[<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/73f1a73c-001f-4724-a028-6a4aa82d00f6" />]*
+*<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/73f1a73c-001f-4724-a028-6a4aa82d00f6" />*
 
 ### Cabin Details
-*[<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4af16166-7f7b-4a25-a7c2-df26cad2e078" />]*
+*<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4af16166-7f7b-4a25-a7c2-df26cad2e078" />*
 
 ### My Reservations
-*[<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b045dbc0-ff12-4fad-8dea-cbb99b176364" />]*
+*<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b045dbc0-ff12-4fad-8dea-cbb99b176364" />*
 
 ### Profile Management
-*[<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cece0d50-79be-4701-aa41-5559edf208ee" />]*
+*<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cece0d50-79be-4701-aa41-5559edf208ee" />*
 
 ---
 
